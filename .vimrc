@@ -21,7 +21,7 @@ set signcolumn=yes "column at the left of the screen for git and stuff
 set showcmd
 set mouse=a "allow mouse to work
 set nohidden "close a tab, remove a buffer
-
+set splitright "open the new buffer on the right
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 call plug#begin('~/.vim/plugged')
@@ -36,6 +36,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'https://github.com/ycm-core/YouCompleteMe.git'
     Plug 'https://tpope.io/vim/surround.git'
     Plug 'https://tpope.io/vim/repeat.git'
+    Plug 'https://github.com/preservim/nerdtree'
 call plug#end()
 
 colorscheme gruvbox
@@ -62,7 +63,7 @@ nnoremap <silent> <leader>pv :vs<CR>
 "nnoremap<silent>  <leader>ps :Rg<SPACE>
 nnoremap <silent> <leader>z :w<CR>
 nnoremap <silent> <leader>Z :wq<CR>
-nnoremap <silent> <leader>Q :q!<CR>
+nnoremap <silent> <leader>q :q!<CR>
 nnoremap <silent> <leader>= :vertical resize +5<CR>
 nnoremap <silent> <leader>- :vertical resize -5<CR>
 inoremap jk <Esc>
@@ -76,6 +77,17 @@ inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
 autocmd FileType html inoremap ;i <em></em><Space><++><Esc>FeT>i
 autocmd FileType html inoremap ;b <b></b><Space><++><Esc>FbT>i
 autocmd FileType html inoremap ;p <p></p><Space><++><Esc>FpT>i
+
+"nerdtree
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
+"nnoremap <C-f> :NERDTreeFind<CR>"
+let NERDTreeShowHidden=1
+autocmd VimEnter * NERDTree | wincmd p
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+    \ quit | endif
+
 
 " Auto delete all trailing white spaces on save
 autocmd BufWritePre * %s/\s\+$//e
