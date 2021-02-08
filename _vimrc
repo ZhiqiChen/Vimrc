@@ -22,7 +22,8 @@ set showcmd
 set mouse=a "allow mouse to work
 set nohidden "close a tab, remove a buffer
 set splitright "open the new buffer on the right
-set guifont=Courier_New:h16
+"set guifont=Courier_New:h16
+set guifont=JetBrains_Mono:h16
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
@@ -96,4 +97,6 @@ autocmd BufWritePre * %s/\s\+$//e
 "install vim plugged
 "need to mkdir $HOME\vimfiles\undodir
 ":w  and     :source %      and     :PlugInstall
-"change  increase keypress speed
+" increase keypress speed
+"Download mono as font
+
