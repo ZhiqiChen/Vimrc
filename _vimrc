@@ -22,6 +22,7 @@ set showcmd
 set mouse=a "allow mouse to work
 set nohidden "close a tab, remove a buffer
 set splitright "open the new buffer on the right
+set guifont=Courier_New:h16
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
