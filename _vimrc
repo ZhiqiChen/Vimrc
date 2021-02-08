@@ -24,6 +24,9 @@ set nohidden "close a tab, remove a buffer
 set splitright "open the new buffer on the right
 "set guifont=Courier_New:h16
 set guifont=JetBrains_Mono:h16
+"2 settings to enable ligatures
+set renderoptions=type:directx
+set encoding=utf-8
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
@@ -69,10 +72,7 @@ nnoremap <silent> <leader>q :q!<CR>
 nnoremap <silent> <leader>= :vertical resize +5<CR>
 nnoremap <silent> <leader>- :vertical resize -5<CR>
 inoremap jk <Esc>
-
-"YCM
-nnoremap <slient> <leader>gd :YcmCompleter GoTo<CR>
-nnoremap <slient> <leader>gf :YcmCompleter FixIt<CR>
+inoremap kj <Esc>
 
 "HTML
 inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
