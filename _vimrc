@@ -25,13 +25,6 @@ set splitright "open the new buffer on the right
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
-"download plug
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
 call plug#begin('~/.vim/plugged')
     Plug 'morhetz/gruvbox'
     Plug 'jremmen/vim-ripgrep'
@@ -41,7 +34,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'lyuts/vim-rtags'
     Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
     Plug 'mbbill/undotree'
-    Plug 'https://github.com/ycm-core/YouCompleteMe.git'
     Plug 'https://tpope.io/vim/surround.git'
     Plug 'https://tpope.io/vim/repeat.git'
     Plug 'https://github.com/preservim/nerdtree'
@@ -62,10 +54,10 @@ let g:netrw_winsize = 25
 
 let g:ctrlp_use_caching = 0
 
-nnoremap <C-h> :wincmd h<CR>
-nnoremap <C-j> :wincmd j<CR>
-nnoremap <C-k> :wincmd k<CR>
-nnoremap <C-l> :wincmd l<CR>
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
 nnoremap <silent> <leader>u :UndotreeToggle<CR>
 nnoremap <silent> <leader>pv :vs<CR>
 "nnoremap<silent>  <leader>ps :Rg<SPACE>
@@ -103,5 +95,4 @@ autocmd BufWritePre * %s/\s\+$//e
 "install vim plugged
 "need to mkdir $HOME\vimfiles\undodir
 ":w  and     :source %      and     :PlugInstall
-"install youcompleteme
 "change  increase keypress speed
