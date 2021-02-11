@@ -3,19 +3,19 @@ filetype plugin on
 syntax on
 
 set noerrorbells "no error sounds
-set tabstop=4 softtabstop=4 "tabing 4 spaces
-set shiftwidth=4 "shift 4 spaces
-set expandtab "tabs changes to spaces
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab "tabing and shifting 4 spaces,
 set autoindent
 set smartindent "better indent
 set rnu "relative line number
+set nu "set line number
+set ignorecase
 set smartcase "searching cases will not matter until Capital letters
+set incsearch "display matches as you are searching
+set hlsearch "highlight searches
 set noswapfile
 set undodir=$HOME\vimfiles\undodir
 set undofile
-set incsearch "display matches as you are searching
-set hlsearch "highlight searches
-set scrolloff=10 "auto scroll whenever you are at x number of lines away from top bottom
+set scrolloff=8 "auto scroll whenever you are at x number of lines away from top bottom
 set colorcolumn=80
 set signcolumn=yes "column at the left of the screen for git and stuff
 set showcmd
@@ -27,7 +27,6 @@ set guifont=JetBrains_Mono:h16
 "2 settings to enable ligatures
 set renderoptions=type:directx
 set encoding=utf-8
-highlight ColorColumn ctermbg=0 guibg=lightgrey
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 call plug#begin('~/.vim/plugged')
@@ -47,6 +46,7 @@ call plug#end()
 colorscheme gruvbox
 set background=dark
 
+
 if executable('rg')
     let g:rg_derive_root='true'
 endif
@@ -64,7 +64,7 @@ nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <silent> <leader>u :UndotreeToggle<CR>
-nnoremap <silent> <leader>pv :vs<CR>
+nnoremap <silent> <leader>vs :vs<CR>
 "nnoremap<silent>  <leader>ps :Rg<SPACE>
 nnoremap <silent> <leader>z :w<CR>
 nnoremap <silent> <leader>Z :wq<CR>
@@ -83,13 +83,12 @@ autocmd FileType html inoremap ;p <p></p><Space><++><Esc>FpT>i
 "nerdtree
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
-"nnoremap <C-f> :NERDTreeFind<CR>"
+nnoremap <C-f> :NERDTreeFind<CR>"
 let NERDTreeShowHidden=1
 autocmd VimEnter * NERDTree | wincmd p
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
-
 
 " Auto delete all trailing white spaces on save
 autocmd BufWritePre * %s/\s\+$//e
@@ -99,4 +98,5 @@ autocmd BufWritePre * %s/\s\+$//e
 ":w  and     :source %      and     :PlugInstall
 " increase keypress speed
 "Download mono as font
+
 
