@@ -73,7 +73,7 @@ nnoremap <C-j> :wincmd j<CR>
 nnoremap <C-k> :wincmd k<CR>
 nnoremap <C-l> :wincmd l<CR>
 nnoremap <silent> <leader>u :UndotreeToggle<CR>
-nnoremap <silent> <leader>pv :vs<CR>
+nnoremap <silent> <leader>vs :vs<CR>
 "nnoremap<silent>  <leader>ps :Rg<SPACE>
 nnoremap <silent> <leader>z :w<CR>
 nnoremap <silent> <leader>Z :wq<CR>
