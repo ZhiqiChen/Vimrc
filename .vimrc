@@ -2,41 +2,55 @@ set nocompatible
 filetype plugin on
 syntax on
 
-set noerrorbells "no error sounds
-set tabstop=4 softtabstop=4 "tabing 4 spaces
-set shiftwidth=4 "shift 4 spaces
-set expandtab "tabs changes to spaces
+set noerrorbells                       "no error sounds
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab "tabing and shifting 4 spaces,
 set autoindent
-set smartindent "better indent
-set rnu "relative line number
-set smartcase "searching cases will not matter until Capital letters
+set smartindent                        "better indent
+set rnu                                "relative line number
+set nu                                 "set line number
+set ignorecase
+set smartcase                          "searching cases will not matter until Capital letters
+set incsearch                          "display matches as you are searching
+set hlsearch                           "highlight searches
 set noswapfile
 set undodir=~/.vim/undodir
 set undofile
-set incsearch "display matches as you are searching
-set hlsearch "highlight searches
-set scrolloff=10 "auto scroll whenever you are at x number of lines away from top bottom
+set scrolloff=8                        "auto scroll whenever you are at x number of lines away from top bottom
 set colorcolumn=80
 set signcolumn=yes "column at the left of the screen for git and stuff
 set showcmd
-set mouse=a "allow mouse to work
-set nohidden "close a tab, remove a buffer
-set splitright "open the new buffer on the right
+set mouse=a                            "allow mouse to work
+set nohidden                           "close a tab, remove a buffer
+set splitright                         "open the new buffer on the right
+"set guifont=Courier_New:h16
+set guifont=JetBrains_Mono:h15
+"2 settings to enable ligatures
+set renderoptions=type:directx
+set encoding=utf-8
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 call plug#begin('~/.vim/plugged')
     Plug 'morhetz/gruvbox'
+    Plug 'vim-airline/vim-airline'
     Plug 'jremmen/vim-ripgrep'
-    Plug 'tpope/vim-fugitive'
     Plug 'leafgarland/typescript-vim'
     Plug 'vim-utils/vim-man'
     Plug 'lyuts/vim-rtags'
-    Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
     Plug 'mbbill/undotree'
+    Plug 'https://github.com/airblade/vim-gitgutter.git'
+
+    Plug 'https://tpope.io/vim/surround.git' |
+        \ Plug 'https://tpope.io/vim/repeat.git'
+    Plug 'https://github.com/preservim/nerdtree' |
+        \ Plug 'Xuyuanp/nerdtree-git-plugin' |
+    Plug 'terryma/vim-multiple-cursors'
+    Plug 'tpope/vim-fugitive'
+    Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
+    Plug 'preservim/nerdcommenter'
+    Plug 'mattn/emmet-vim'
+    Plug 'https://tpope.io/vim/unimpaired.git'
+    
     Plug 'https://github.com/ycm-core/YouCompleteMe.git'
-    Plug 'https://tpope.io/vim/surround.git'
-    Plug 'https://tpope.io/vim/repeat.git'
-    Plug 'https://github.com/preservim/nerdtree'
 call plug#end()
 
 colorscheme gruvbox
@@ -67,6 +81,7 @@ nnoremap <silent> <leader>q :q!<CR>
 nnoremap <silent> <leader>= :vertical resize +5<CR>
 nnoremap <silent> <leader>- :vertical resize -5<CR>
 inoremap jk <Esc>
+inoremap kj <Esc>
 
 "YCM
 nnoremap <slient> <leader>gd :YcmCompleter GoTo<CR>
@@ -92,8 +107,23 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 " Auto delete all trailing white spaces on save
 autocmd BufWritePre * %s/\s\+$//e
 
+"git gutter
+let g:gitgutter_git_executable = 'C:\Program Files\Git\bin\git.exe'
+set updatetime=500
+
+"Nerd Commenter
+let g:NERDCreateDefaultMappings = 1
+let g:NERDSpaceDelims = 1
+
+"Emmet
+"just for html,css
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+
+
 "install vim plugged
 "need to mkdir ~/.vim/undodir"
 ":w  and     :source %      and     :PlugInstall
 "install youcompleteme
-"change  increase keypress speed
+"increase keypress speed
+"Download mono as font
