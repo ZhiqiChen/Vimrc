@@ -68,10 +68,10 @@ let g:netrw_winsize = 25
 
 let g:ctrlp_use_caching = 0
 
-nnoremap <leader>h :wincmd h<CR>
-nnoremap <leader>j :wincmd j<CR>
-nnoremap <leader>k :wincmd k<CR>
-nnoremap <leader>l :wincmd l<CR>
+nnoremap <C-h> :wincmd h<CR>
+nnoremap <C-j> :wincmd j<CR>
+nnoremap <C-k> :wincmd k<CR>
+nnoremap <C-l> :wincmd l<CR>
 nnoremap <silent> <leader>u :UndotreeToggle<CR>
 nnoremap <silent> <leader>vs :vs<CR>
 "nnoremap<silent>  <leader>ps :Rg<SPACE>
@@ -82,8 +82,11 @@ nnoremap <silent> <leader>= :vertical resize +5<CR>
 nnoremap <silent> <leader>- :vertical resize -5<CR>
 inoremap jk <Esc>
 inoremap kj <Esc>
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 "HTML
+nnoremap <leader>a i<++><Esc>F<
 inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
 autocmd FileType html inoremap ;i <em></em><Space><++><Esc>FeT>i
 autocmd FileType html inoremap ;b <b></b><Space><++><Esc>FbT>i
@@ -122,5 +125,3 @@ autocmd FileType html,css EmmetInstall
 ":w  and     :source %      and     :PlugInstall
 " increase keypress speed
 "Download mono as font
-
-
