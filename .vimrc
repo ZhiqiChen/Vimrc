@@ -82,12 +82,15 @@ nnoremap <silent> <leader>= :vertical resize +5<CR>
 nnoremap <silent> <leader>- :vertical resize -5<CR>
 inoremap jk <Esc>
 inoremap kj <Esc>
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 "YCM
 nnoremap <slient> <leader>gd :YcmCompleter GoTo<CR>
 nnoremap <slient> <leader>gf :YcmCompleter FixIt<CR>
 
 "HTML
+nnoremap <leader>a i<++><Esc>F<
 inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
 autocmd FileType html inoremap ;i <em></em><Space><++><Esc>FeT>i
 autocmd FileType html inoremap ;b <b></b><Space><++><Esc>FbT>i
