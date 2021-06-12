@@ -28,28 +28,35 @@ set guifont=JetBrains_Mono:h15
 set renderoptions=type:directx
 set encoding=utf-8
 highlight ColorColumn ctermbg=0 guibg=lightgrey
+" set the backspace to delete normally
+set backspace=indent,eol,start
 
 call plug#begin('~/.vim/plugged')
+    "visual / background functional
     Plug 'morhetz/gruvbox'
     Plug 'vim-airline/vim-airline'
-    Plug 'jremmen/vim-ripgrep'
     Plug 'leafgarland/typescript-vim'
+    "grep
     Plug 'vim-utils/vim-man'
-    Plug 'lyuts/vim-rtags'
+    Plug 'jremmen/vim-ripgrep'
+    "Visual studio type stuff or better experience
+    Plug 'lyuts/vim-rtags' "find references
     Plug 'mbbill/undotree'
-    Plug 'https://github.com/airblade/vim-gitgutter.git'
-
-    Plug 'https://tpope.io/vim/surround.git' |
-        \ Plug 'https://tpope.io/vim/repeat.git'
     Plug 'https://github.com/preservim/nerdtree' |
         \ Plug 'Xuyuanp/nerdtree-git-plugin' |
-    Plug 'terryma/vim-multiple-cursors'
-    Plug 'tpope/vim-fugitive'
-    Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
     Plug 'preservim/nerdcommenter'
-    Plug 'mattn/emmet-vim'
-    Plug 'https://tpope.io/vim/unimpaired.git'
-    
+    Plug 'https://github.com/ctrlpvim/ctrlp.vim.git' "fuzzy finder
+    "git
+    Plug 'https://github.com/airblade/vim-gitgutter.git'
+    Plug 'tpope/vim-fugitive'
+
+    "functionalities
+    Plug 'https://tpope.io/vim/surround.git' |
+        \ Plug 'https://tpope.io/vim/repeat.git'
+    Plug 'terryma/vim-multiple-cursors'
+    Plug 'mattn/emmet-vim' "html shortcuts
+    Plug 'https://tpope.io/vim/unimpaired.git' "some interesting commands
+
     Plug 'https://github.com/ycm-core/YouCompleteMe.git'
 call plug#end()
 
