@@ -23,7 +23,7 @@ set mouse=a                            "allow mouse to work
 set nohidden                           "close a tab, remove a buffer
 set splitright                         "open the new buffer on the right
 "set guifont=Courier_New:h16
-set guifont=JetBrains_Mono:h15
+"set guifont=JetBrains_Mono:h16
 "2 settings to enable ligatures
 set renderoptions=type:directx
 set encoding=utf-8
@@ -51,7 +51,7 @@ call plug#begin('~/.vim/plugged')
 
     "functionalities
     Plug 'https://tpope.io/vim/surround.git' |
-                \ Plug 'https://tpope.io/vim/repeat.git'
+        \ Plug 'https://tpope.io/vim/repeat.git'
     Plug 'terryma/vim-multiple-cursors'
     Plug 'mattn/emmet-vim' "html shortcuts
     Plug 'https://tpope.io/vim/unimpaired.git' "some interesting commands
@@ -84,9 +84,6 @@ nnoremap <C-k> :wincmd k<CR>
 nnoremap <C-l> :wincmd l<CR>
 nnoremap <silent> <leader>u :UndotreeToggle<CR>
 "nnoremap<silent>  <leader>ps :Rg<SPACE>
-nnoremap <silent> <leader>z :w<CR>
-nnoremap <silent> <leader>Z :wq<CR>
-nnoremap <silent> <leader>q :q!<CR>
 nnoremap <silent> <leader>= :vertical resize +5<CR>
 nnoremap <silent> <leader>- :vertical resize -5<CR>
 inoremap jk <Esc>
