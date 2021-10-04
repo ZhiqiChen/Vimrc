@@ -35,10 +35,12 @@ call plug#begin('~/.vim/plugged')
     "visual / background functional
     Plug 'morhetz/gruvbox'
     Plug 'vim-airline/vim-airline'
-    Plug 'leafgarland/typescript-vim'
+    Plug 'leafgarland/typescript-vim'   "Allows typescript file color correction
+
     "grep
-    Plug 'vim-utils/vim-man'
-    Plug 'jremmen/vim-ripgrep'
+    "Plug 'vim-utils/vim-man'
+    "Plug 'jremmen/vim-ripgrep'
+
     "Visual studio type stuff or better experience
     Plug 'lyuts/vim-rtags' "find references
     Plug 'mbbill/undotree'
@@ -46,18 +48,19 @@ call plug#begin('~/.vim/plugged')
         \ Plug 'Xuyuanp/nerdtree-git-plugin' |
     Plug 'preservim/nerdcommenter'
     Plug 'https://github.com/ctrlpvim/ctrlp.vim.git' "fuzzy finder
-    "git
-    Plug 'https://github.com/airblade/vim-gitgutter.git'
-    Plug 'tpope/vim-fugitive'
 
     "functionalities
     Plug 'https://tpope.io/vim/surround.git' |
-        \ Plug 'https://tpope.io/vim/repeat.git'
+                \ Plug 'https://tpope.io/vim/repeat.git'
     Plug 'terryma/vim-multiple-cursors'
     Plug 'mattn/emmet-vim' "html shortcuts
     Plug 'https://tpope.io/vim/unimpaired.git' "some interesting commands
 
-    Plug 'https://github.com/ycm-core/YouCompleteMe.git'
+    "git
+    "Plug 'https://github.com/airblade/vim-gitgutter.git'
+    Plug 'tpope/vim-fugitive'
+
+    "Plug 'https://github.com/ycm-core/YouCompleteMe.git'
 call plug#end()
 
 colorscheme gruvbox
@@ -80,7 +83,6 @@ nnoremap <C-j> :wincmd j<CR>
 nnoremap <C-k> :wincmd k<CR>
 nnoremap <C-l> :wincmd l<CR>
 nnoremap <silent> <leader>u :UndotreeToggle<CR>
-nnoremap <silent> <leader>vs :vs<CR>
 "nnoremap<silent>  <leader>ps :Rg<SPACE>
 nnoremap <silent> <leader>z :w<CR>
 nnoremap <silent> <leader>Z :wq<CR>
@@ -104,8 +106,7 @@ autocmd FileType html inoremap ;b <b></b><Space><++><Esc>FbT>i
 autocmd FileType html inoremap ;p <p></p><Space><++><Esc>FpT>i
 
 "nerdtree
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
 "nnoremap <C-f> :NERDTreeFind<CR>"
 let NERDTreeShowHidden=1
 autocmd VimEnter * NERDTree | wincmd p
