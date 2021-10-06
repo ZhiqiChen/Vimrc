@@ -22,8 +22,6 @@ set showcmd
 set mouse=a                            "allow mouse to work
 set nohidden                           "close a tab, remove a buffer
 set splitright                         "open the new buffer on the right
-"set guifont=Courier_New:h16
-"set guifont=JetBrains_Mono:h16
 "2 settings to enable ligatures
 set renderoptions=type:directx
 set encoding=utf-8
@@ -78,6 +76,7 @@ let g:netrw_winsize = 25
 
 let g:ctrlp_use_caching = 0
 
+"Basics
 nnoremap <C-h> :wincmd h<CR>
 nnoremap <C-j> :wincmd j<CR>
 nnoremap <C-k> :wincmd k<CR>
@@ -91,9 +90,14 @@ inoremap kj <Esc>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+" This uses gj /gk when going 1 line up/down, but normal j/k when prefixed
+" with a number should use autocmd FileType txt files or something
+" nnoremap <expr> j v:count ? 'j' : 'gj'
+" nnoremap <expr> k v:count ? 'k' : 'gk'
+
 "YCM
-nnoremap <slient> <leader>gd :YcmCompleter GoTo<CR>
-nnoremap <slient> <leader>gf :YcmCompleter FixIt<CR>
+" nnoremap <slient> <leader>gd :YcmCompleter GoTo<CR>
+" nnoremap <slient> <leader>gf :YcmCompleter FixIt<CR>
 
 "HTML
 autocmd FileType html nnoremap <leader>a i<++><Esc>F<
@@ -116,7 +120,6 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 autocmd BufWritePre * %s/\s\+$//e
 
 "git gutter
-let g:gitgutter_git_executable = 'C:\Program Files\Git\bin\git.exe'
 set updatetime=500
 
 "Nerd Commenter
