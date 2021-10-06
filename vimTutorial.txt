@@ -53,19 +53,6 @@ Command mode (motion):
 	ctrl-d to go half page down
 	ctrl-u to go half page up
 	
-	gj to go down a line on cursor
-	gk to go up a line on cursor
-	gv to go to previous visual mode selection
-	gi to go to previous insert mode location
-	g0 to go to beggining of line on cursor location
-	g$ to go to end of line on cursor location
-	gq to format texts that are too long on one line into multiple lines. Very useful for word processing
-	J accomplishes the opposite by Joining line below with a space
-		gJ Join the line below without a space
-	gu[text obj] to un-capitalize, guu for the whole line
-	gU[text obj] to Capitalize, gUU for the whole line
-	~ to switch capitalization or g~[text obj].
-	g& to run the last :s (substitute command) on the whole document.
 Commands:
 	cw change word delete the next word and put you in insert mode
 	C to delete the rest of the line and put you into insert mode
@@ -88,8 +75,19 @@ Commands:
 	o to add a line below
 	O to add a line above
 
-	J join line from below with a space
-
+	gj to go down a line on cursor
+	gk to go up a line on cursor
+	gv to go to previous visual mode selection
+	gi to go to previous insert mode location
+	g0 to go to beggining of line on cursor location
+	g$ to go to end of line on cursor location
+	gq to format texts that are too long on one line into multiple lines. Very useful for word processing
+	J accomplishes the opposite by Joining line below with a space
+		gJ Join the line below without a space
+	gu[text obj] to un-capitalize, guu for the whole line
+	gU[text obj] to Capitalize, gUU for the whole line
+	~ to switch capitalization or g~[text obj].
+	g& to run the last :s (substitute command) on the whole document.
 Text Objects:
 	iw inner word
 	is inner sentence (generally not recommended as no white space)
@@ -114,26 +112,22 @@ Text Objects:
 	( or )
 	< or >
 
-it is useful for deletion to use a instead of i.
-
-example = (['one thing', 'other thing'], 2)
-
-surround.vim:
-	ys add surround
-	ds delete
-	cs change
-	yss) add surround, s for entire line, ) to add brackets
-	ys2aw) add surround, 2 things, aw words, ) to add )
-	dst delete surrounding tags
-	cs") change surround quotes into brackets
-	cst<em> change surround tag into <em>
-	veeeS) v enter visual mode, e end of word, S enter surround mode, replace )
-
-
 In insert Mode:
-Ctrl + j - begin new line during insert mode
-Ctrl + t - indent (move right) line one shiftwidth during insert mode
-Ctrl + d - de-indent (move left) line one shiftwidth during insert mode
+	Ctrl + j - begin new line during insert mode
+	Ctrl + t - indent (move right) line one shiftwidth during insert mode
+	Ctrl + d - de-indent (move left) line one shiftwidth during insert mode
+
+Registers:
+	"+[command] system clipboard, "+y copys visual mode text into system clipboard
+	""[command] last delete or yank
+	"0[command] last yank
+	"[1-9][command] last 9 deletion from 0 (youngest) to 9 (oldest)
+	read only:
+		". last inserted text
+		"% file path
+		": is the most recently executed command. If you save the current buffer with :w, “w” will be in this register.
+		"# last edited file. vim uses this when you do ctrl-^
+		
 
 misc:
 	zz to center your curser useful when the cursor is on top/bottom of the screen
@@ -199,3 +193,18 @@ marks:
 Advanced commands:
     :norm runs a normal command ie. :norm I<br>
     :! runs a bash command
+    
+surround.vim:
+	ys add surround
+	ds delete
+	cs change
+	yss) add surround, s for entire line, ) to add brackets
+	ys2aw) add surround, 2 things, aw words, ) to add )
+	dst delete surrounding tags
+	cs") change surround quotes into brackets
+	cst<em> change surround tag into <em>
+	veeeS) v enter visual mode, e end of word, S enter surround mode, replace )
+	
+it is useful for deletion to use a instead of i.
+
+example = (['one thing', 'other thing'], 2)
