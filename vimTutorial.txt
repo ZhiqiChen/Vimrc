@@ -10,6 +10,7 @@ vim commands:
 	v for visual mode
 		V for horizontal block
 		ctrl+v for verticle block
+		
 Command mode (motion):
 	by pressing "escape"
 	j down
@@ -122,6 +123,7 @@ Registers:
 	""[command] last delete or yank
 	"0[command] last yank
 	"[1-9][command] last 9 deletion from 0 (youngest) to 9 (oldest)
+	ctrl-r[register] Insert Mode ONLY, paste register. ie. ctrl-r" pasting last yank/delete.
 	read only:
 		". last inserted text
 		"% file path
