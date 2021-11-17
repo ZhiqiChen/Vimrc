@@ -1,15 +1,10 @@
 {
   "settingsVersion": "1.67",
-  "exclusionRules": [
-    {
-      "pattern": "https?://mail.google.com/*",
-      "passKeys": ""
-    }
-  ],
+  "exclusionRules": [],
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
-  "keyMappings": "# Insert your preferred key mappings here.\nmap a Vomnibar.activateInNewTab keyword=d\nmap y Vomnibar.activateInNewTab keyword=y\nmap d scrollDown count=4\nmap u scrollUp count=4\nmap e scrollUp count=4\nmap Y createTab https://www.youtube.com/\nmap zz createTab https://www.reddit.com/r/FrugalMaleFashionCDN/new/\nmap zd createTab https://drive.google.com/drive/u/0/my-drive\nmap zm createTab https://www.google.com/maps/@43.3679098,-79.7648997,15z\nmap ze createTab https://www.evernote.com/client/web?login=true#?hm=true&\nmap zs createTab https://open.spotify.com/\nmapkey ` <c-[>\nmap D scrollFullPageDown\nmap U scrollFullPageUp\nmap E scrollFullPageUp",
+  "keyMappings": "# Insert your preferred key mappings here.\nmap d scrollDown count=4\nmap u scrollUp count=4\nmap e scrollUp count=4\nmap Y createTab https://www.youtube.com/\nmap zz createTab https://www.reddit.com/r/FrugalMaleFashionCDN/new/\nmap zd createTab https://drive.google.com/drive/u/0/my-drive\nmap zm createTab https://www.google.com/maps/@43.3679098,-79.7648997,15z\nmap ze createTab https://www.evernote.com/client/web?login=true#?hm=true&\nmap zs createTab https://open.spotify.com/\nmapkey ` <c-[>\nmap D scrollFullPageDown\nmap U scrollFullPageUp\nmap E scrollFullPageUp\nmap a previousTab\nmap s nextTab\nmap q passNextKey",
   "linkHintCharacters": "sadfjklewcmpgh",
   "linkHintNumbers": "0123456789",
   "newTabUrl": "https://www.duckduckgo.com",
