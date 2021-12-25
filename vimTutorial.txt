@@ -82,7 +82,7 @@ Commands:
 	gi to go to previous insert mode location
 	g0 to go to beggining of line on cursor location
 	g$ to go to end of line on cursor location
-	gq to format texts that are too long on one line into multiple lines. Very useful for word processing
+	gq [text obj] to format texts that are too long on one line into multiple lines. Very useful for word processing
 	J accomplishes the opposite by Joining line below with a space
 		gJ Join the line below without a space
 	gu[text obj] to un-capitalize, guu for the whole line
