@@ -197,6 +197,8 @@ marks:
 Advanced commands:
     :norm runs a normal command ie. :norm I<br>
     :! runs a bash command
+    :read to read the output from other commands
+    	:read !ls    will read all of the filenames
     
 surround.vim:
 	ys add surround
