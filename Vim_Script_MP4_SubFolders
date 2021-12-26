@@ -1,0 +1,3 @@
+let @c = "0/[0-9]\\+\<CR>ea \<ESC>Dj"
+let @a = ":read !ls *mp4\<CR>ggdd30@c\<CR>"
+let @s = ":w\<CR>:! mkdir $(cat x)\<CR>"
