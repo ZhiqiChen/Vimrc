@@ -214,3 +214,10 @@ surround.vim:
 it is useful for deletion to use a instead of i.
 
 example = (['one thing', 'other thing'], 2)
+
+
+NerdCommenter:
+	[count]<leader>c<space> toggle comment
+	[count]<leader>cc Comment out the current line or text selected in visual mode.
+	[count]<leader>ci Toggles the comment state of the selected line(s) individually.
+	[count]<leader>cs nice formated blocks
