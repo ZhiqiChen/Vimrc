@@ -55,6 +55,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'terryma/vim-multiple-cursors'
     Plug 'mattn/emmet-vim' "html shortcuts
     "Plug 'https://tpope.io/vim/unimpaired.git' "some interesting commands
+    Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 
     "git
     "Plug 'https://github.com/airblade/vim-gitgutter.git'
