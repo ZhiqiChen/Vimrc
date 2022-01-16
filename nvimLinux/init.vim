@@ -64,11 +64,11 @@ call plug#begin('~/.config/nvim/plugged')
 call plug#end()
 
 "for clipboard usage
-if system('uname -s') == "Darwin\n"
-  set clipboard=unnamed "OSX
-else
-  set clipboard=unnamedplus "Linux
-endif
+" if system('uname -s') == "Darwin\n"
+  " set clipboard=unnamed "OSX
+" else
+set clipboard=unnamedplus "Linux
+" endif
 
 colorscheme gruvbox
 set background=dark
@@ -98,7 +98,7 @@ inoremap jk <Esc>
 inoremap kj <Esc>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-vnoremap <leader>y "*y
+vnoremap <leader>y "+y
 nnoremap [<Space> O<Esc>j
 nnoremap ]<Space> o<Esc>k
 
