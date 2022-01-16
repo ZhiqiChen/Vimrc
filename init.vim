@@ -54,7 +54,7 @@ call plug#begin('~/.config/nvim/plugged')
         \ Plug 'https://tpope.io/vim/repeat.git'
     Plug 'terryma/vim-multiple-cursors'
     Plug 'mattn/emmet-vim' "html shortcuts
-    Plug 'https://tpope.io/vim/unimpaired.git' "some interesting commands
+    "Plug 'https://tpope.io/vim/unimpaired.git' "some interesting commands
 
     "git
     "Plug 'https://github.com/airblade/vim-gitgutter.git'
@@ -62,6 +62,13 @@ call plug#begin('~/.config/nvim/plugged')
 
     Plug 'https://github.com/ycm-core/YouCompleteMe.git'
 call plug#end()
+
+"for clipboard usage
+if system('uname -s') == "Darwin\n"
+  set clipboard=unnamed "OSX
+else
+  set clipboard=unnamedplus "Linux
+endif
 
 colorscheme gruvbox
 set background=dark
@@ -91,22 +98,19 @@ inoremap jk <Esc>
 inoremap kj <Esc>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+vnoremap <leader>y "*y
+nnoremap [<Space> O<Esc>j
+nnoremap ]<Space> o<Esc>k
+
 
 " This uses gj /gk when going 1 line up/down, but normal j/k when prefixed
 " with a number should use autocmd FileType txt files or something
-" nnoremap <expr> j v:count ? 'j' : 'gj'
-" nnoremap <expr> k v:count ? 'k' : 'gk'
+autocmd FileType txt nnoremap <expr> j v:count ? 'j' : 'gj'
+autocmd FileType txt nnoremap <expr> k v:count ? 'k' : 'gk'
 
 "YCM
-" nnoremap <slient> <leader>gd :YcmCompleter GoTo<CR>
-" nnoremap <slient> <leader>gf :YcmCompleter FixIt<CR>
-
-"HTML
-autocmd FileType html nnoremap <leader>a i<++><Esc>F<
-autocmd FileType html inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
-autocmd FileType html inoremap ;i <em></em><Space><++><Esc>FeT>i
-autocmd FileType html inoremap ;b <b></b><Space><++><Esc>FbT>i
-autocmd FileType html inoremap ;p <p></p><Space><++><Esc>FpT>i
+nnoremap <slient> <leader>gd :YcmCompleter GoTo<CR>
+nnoremap <slient> <leader>gf :YcmCompleter FixIt<CR>
 
 "nerdtree
 nnoremap <leader>n :NERDTreeToggle<CR>
