@@ -24,8 +24,7 @@ function! s:MarkdownOrderedList(rowNum) abort
     return 1
 endfunction
 command! -buffer -nargs=1 CreateMarkdownList call <SID>MarkdownOrderedList(<args>)
-
-" autocmd FileType markdown inoremap ;ol <Esc>:<C-U>exe OrderedList()<CR>
+autocmd FileType markdown nnoremap <buffer>;ol <Cmd>execute "CreateMarkdownList " . expand("<cword>")<CR>
 
 "tables
 
