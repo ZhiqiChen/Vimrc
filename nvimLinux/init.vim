@@ -1,5 +1,7 @@
 set nocompatible
+filetype on
 filetype plugin on
+filetype indent on
 syntax on
 set exrc                               "check if there is a vimrc in current dir for project specific configs.
 set secure                             "security concerns for exrc
@@ -32,10 +34,11 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 set backspace=indent,eol,start
 
 call plug#begin('~/.config/nvim/plugged')
-    "visual / background functional
+    "visual / background / languages specific
     Plug 'morhetz/gruvbox'
     Plug 'vim-airline/vim-airline'
     Plug 'leafgarland/typescript-vim'   "Allows typescript file color correction
+    Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 
     "grep
     "Plug 'vim-utils/vim-man'
@@ -55,7 +58,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'terryma/vim-multiple-cursors'
     Plug 'mattn/emmet-vim' "html shortcuts
     "Plug 'https://tpope.io/vim/unimpaired.git' "some interesting commands
-    Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+    Plug 'junegunn/vim-easy-align'      "Easy alignment for mdown tables or tex math equations
 
     "git
     "Plug 'https://github.com/airblade/vim-gitgutter.git'
@@ -78,15 +81,12 @@ if executable('rg')
     let g:rg_derive_root='true'
 endif
 
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-let mapleader = " "
 let g:netrw_browse_split=2
 let g:netrw_banner = 0
 let g:netrw_winsize = 25
 
-let g:ctrlp_use_caching = 0
-
 "Basics
+let mapleader = " "
 nnoremap <C-h> :wincmd h<CR>
 nnoremap <C-j> :wincmd j<CR>
 nnoremap <C-k> :wincmd k<CR>
@@ -100,20 +100,22 @@ inoremap kj <Esc>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 vnoremap <leader>y "+y
-nnoremap [<Space> O<Esc>j
-nnoremap ]<Space> o<Esc>k
-
+nnoremap <silent> <leader>vi :vs<Space>$MYVIMRC<CR>
 
 " This uses gj /gk when going 1 line up/down, but normal j/k when prefixed
 " with a number should use autocmd FileType txt files or something
 autocmd FileType txt nnoremap <expr> j v:count ? 'j' : 'gj'
 autocmd FileType txt nnoremap <expr> k v:count ? 'k' : 'gk'
 
+"Ctrl-p
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let g:ctrlp_use_caching = 0
+
 "YCM
 nnoremap <slient> <leader>gd :YcmCompleter GoTo<CR>
 nnoremap <slient> <leader>gf :YcmCompleter FixIt<CR>
 
-"nerdtree
+"Nerdtree
 nnoremap <leader>n :NERDTreeToggle<CR>
 "nnoremap <C-f> :NERDTreeFind<CR>"
 let NERDTreeShowHidden=1
@@ -122,11 +124,10 @@ autocmd VimEnter * NERDTree | wincmd p
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
 
-
-" Auto delete all trailing white spaces on save
+"Auto delete all trailing white spaces on save
 autocmd BufWritePre * %s/\s\+$//e
 
-"git gutter
+"Git Gutter
 set updatetime=500
 
 "Nerd Commenter
@@ -137,6 +138,13 @@ let g:NERDSpaceDelims = 1
 "just for html,css
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
+
+"Vim Easy-Align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
 
 
 "install vim plugged
