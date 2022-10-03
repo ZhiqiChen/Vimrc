@@ -140,6 +140,14 @@ misc:
 	r(letter) replace cursor with letter
 	>> to indent
 	<< to left indent
+	:set spell!  to start spell check
+		]s next spelling error
+		[s previous spelling error
+		z= when you're on a mis-spelled word to correct it
+			1z= vim's first spelling suggestion
+		zg add unknown word to dictionary
+			zug to remove the word from dictionary
+		
 Search:
 	/pattern will search for that pattern
 		n for next
