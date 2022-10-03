@@ -7,6 +7,10 @@ autocmd FileType markdown inoremap <buffer> ;bf ****<Space><++><Esc>2F*i
 autocmd FileType markdown inoremap <buffer> ;it __<Space><++><Esc>F_i
 autocmd FileType markdown inoremap <buffer> ;hr [](<++>)<Space><++><Esc>F]i
 autocmd FileType markdown inoremap <buffer> ;im ![](<++>)<Space><++><Esc>F]i
+autocmd FileType markdown nnoremap j gj
+autocmd FileType markdown nnoremap k gk
+" autocmd FileType markdown inoremap <Tab> <c-t>
+" autocmd FileType markdown inoremap <s-tab> <c-d>
 
 autocmd FileType markdown set tabstop=2
 autocmd FileType markdown set shiftwidth=2
@@ -44,7 +48,7 @@ function! s:MarkdownTable(columnNum, rowNum) abort
     return 1
 endfunction
 command! -buffer -nargs=+ CreateMarkdownTable call <SID>MarkdownTable(<f-args>)
-" nnoremap <buffer>;ta <Cmd>:<C-U>exe CommandCreateMarkdownTable<Space>
+" autocmd FileType markdown nnoremap <buffer>;ta <Cmd>:>execute CommandCreateMarkdownTable<Space><CR>
 
 " Math
 autocmd FileType markdown inoremap <buffer> ;e $$<Space><++><Esc>2T$i
@@ -57,5 +61,40 @@ autocmd FileType markdown inoremap <buffer> ;= &=<Space>
 autocmd FileType markdown inoremap <buffer> ;fr \frac{}{<++>}<++><Esc>T{;i
 autocmd FileType markdown inoremap <buffer> ;sup ^{}<++><Esc>T{i
 autocmd FileType markdown inoremap <buffer> ;sub _{}<++><Esc>T{i
+
+
+" Auto bullet points Lua, https://gist.github.com/gaoDean/288d01dfe64da66569fb6615c767e081
+
+lua <<EOF
+autolist = function()
+ 	local preceding_line = vim.fn.getline(vim.fn.line(".") - 1)
+     if preceding_line:match("^%s*%d+%.%s.") then
+ 		local list_index = preceding_line:match("%d+")
+ 	    print(list_index .. "t")
+ 		vim.fn.setline(".", preceding_line:match("^%s*") .. list_index + 1 .. ". ")
+ 		vim.cmd([[execute "normal \<esc>A\<space>"]])
+ 	elseif preceding_line:match("^%s*%d+%.%s$") then
+ 		vim.fn.setline(vim.fn.line(".") - 1, "")
+ 	elseif preceding_line:match("^%s*[-+*]") and #preceding_line:match("[-+*].*") == 1 then
+ 		vim.fn.setline(vim.fn.line(".") - 1, "")
+ 		vim.fn.setline(".", "")
+	end
+end
+function map(mode, keys, output)
+	vim.api.nvim_set_keymap(mode, keys, output, { noremap = true, silent = true})
+end
+
+function imap(keys, output)
+	map("i", keys, output)
+end
+
+function au(evt, pat, cmd) -- (string|table), (string|table), (string)
+	vim.api.nvim_create_autocmd(evt, { pattern = pat, command = cmd, })
+end
+imap("<cr>", [[<cr><cmd>lua autolist()<cr>]])
+
+au("FileType", "markdown", "setl comments=b:*,b:-,b:+,n:>")
+au("FileType", "markdown", "setl formatoptions+=r")
+EOF
 
 " augroup end
