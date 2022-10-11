@@ -1,6 +1,9 @@
 " augroup markdownVimBinding
 " au! markdownVimBinding
 "Markdown stuff
+
+" pressing ctrl-L to fix spelling mistakes
+autocmd FileType markdown inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 autocmd FileType markdown nnoremap <buffer> <C-Space> /<++><Enter>"_c4l
 autocmd FileType markdown inoremap <buffer> <C-Space> <Esc>/<++><Enter>"_c4l
 autocmd FileType markdown inoremap <buffer> ;bf ****<Space><++><Esc>2F*i
@@ -12,8 +15,6 @@ autocmd FileType markdown nnoremap k gk
 " autocmd FileType markdown inoremap <Tab> <c-t>
 " autocmd FileType markdown inoremap <s-tab> <c-d>
 
-autocmd FileType markdown set tabstop=2
-autocmd FileType markdown set shiftwidth=2
 " lists
 function! s:MarkdownOrderedList(rowNum) abort
     if a:rowNum > 0
@@ -51,16 +52,19 @@ command! -buffer -nargs=+ CreateMarkdownTable call <SID>MarkdownTable(<f-args>)
 " autocmd FileType markdown nnoremap <buffer>;ta <Cmd>:>execute CommandCreateMarkdownTable<Space><CR>
 
 " Math
-autocmd FileType markdown inoremap <buffer> ;e $$<Space><++><Esc>2T$i
-autocmd FileType markdown inoremap <buffer> ;ra {\rightarrow}
-autocmd FileType markdown inoremap <buffer> ;la {\leftarrow}
-autocmd FileType markdown inoremap <buffer> ;lra {\leftrightarrow}
-autocmd FileType markdown inoremap <buffer> ;fa {\forall}
-autocmd FileType markdown inoremap <buffer> ;= &=<Space>
+autocmd FileType markdown inoremap <buffer> ;eq $$<Space><++><Esc>2T$i
+autocmd FileType markdown inoremap <buffer> ;eeq $$<CR><CR>$$<CR><CR><++><Esc>3kA
+" autocmd FileType markdown inoremap <buffer> ;ra {\rightarrow}
+" autocmd FileType markdown inoremap <buffer> ;la {\leftarrow}
+" autocmd FileType markdown inoremap <buffer> ;lra {\leftrightarrow}
+" autocmd FileType markdown inoremap <buffer> ;fa {\forall}
+" autocmd FileType markdown inoremap <buffer> ;= &=<Space>
 
-autocmd FileType markdown inoremap <buffer> ;fr \frac{}{<++>}<++><Esc>T{;i
-autocmd FileType markdown inoremap <buffer> ;sup ^{}<++><Esc>T{i
-autocmd FileType markdown inoremap <buffer> ;sub _{}<++><Esc>T{i
+" autocmd FileType markdown inoremap <buffer> ;fr \frac{}{<++>}<++><Esc>T{;i
+" autocmd FileType markdown inoremap <buffer> ;sup ^{}<++><Esc>T{i
+" autocmd FileType markdown inoremap <buffer> ;sub _{}<++><Esc>T{i
+" autocmd FileType markdown inoremap <buffer> ;al \begin{align*}<Enter><Enter>\end{align*}<Enter><Enter><++><Esc>3kA
+" autocmd FileType markdown inoremap <buffer> ;ma \begin{bmatrix*}<Enter><Enter>\end{bmatrix*}<Enter><Enter><++><Esc>3kA
 
 
 " Auto bullet points Lua, https://gist.github.com/gaoDean/288d01dfe64da66569fb6615c767e081

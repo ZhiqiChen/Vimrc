@@ -38,7 +38,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'morhetz/gruvbox'
     Plug 'vim-airline/vim-airline'
     Plug 'leafgarland/typescript-vim'   "Allows typescript file color correction
-    Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+    Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' } |
+        \   Plug 'lervag/vimtex'
 
     "grep
     "Plug 'vim-utils/vim-man'
@@ -59,20 +60,23 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'mattn/emmet-vim' "html shortcuts
     "Plug 'https://tpope.io/vim/unimpaired.git' "some interesting commands
     Plug 'junegunn/vim-easy-align'      "Easy alignment for mdown tables or tex math equations
+    " snippets
+    Plug 'SirVer/ultisnips' |
+        \ Plug 'honza/vim-snippets' " Snippets are separated from the engine. Add this if you want them
 
     "git
     "Plug 'https://github.com/airblade/vim-gitgutter.git'
     Plug 'tpope/vim-fugitive'
 
-    Plug 'https://github.com/ycm-core/YouCompleteMe.git'
+"    Plug 'https://github.com/ycm-core/YouCompleteMe.git'
 call plug#end()
 
 "for clipboard usage
-" if system('uname -s') == "Darwin\n"
-  " set clipboard=unnamed "OSX
-" else
-set clipboard=unnamedplus "Linux
-" endif
+if system('uname -s') == "Darwin\n"
+    set clipboard=unnamed "OSX
+else
+    set clipboard=unnamedplus "Linux
+endif
 
 colorscheme gruvbox
 set background=dark
@@ -101,6 +105,8 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 vnoremap <leader>y "+y
 nnoremap <silent> <leader>vi :vs<Space>$MYVIMRC<CR>
+nnoremap <silent> <leader>o o<Esc>k
+nnoremap <silent> <leader>O O<Esc>j
 
 " This uses gj /gk when going 1 line up/down, but normal j/k when prefixed
 " with a number should use autocmd FileType txt files or something
@@ -145,6 +151,16 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
+"Snippets
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
+"vim tex
+let g:tex_flavor='latex'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
 
 
 "install vim plugged
