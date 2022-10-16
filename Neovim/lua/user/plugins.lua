@@ -47,12 +47,26 @@ return packer.startup(function(use)
     use "nvim-tree/nvim-web-devicons"
     use "akinsho/bufferline.nvim" -- tabs on the top
     use "moll/vim-bbye"
-    use 'nvim-lualine/lualine.nvim' -- info bar at the bottom
+    use "nvim-lualine/lualine.nvim" -- info bar at the bottom
+
+
+    -- Language Specific
+    -- LaTex
+    use {
+        "xuhdev/vim-latex-live-preview",
+        ft = { 'tex' }
+    }
+    use {
+        "lervag/vimtex",
+        ft = { 'tex' }
+    }
 
     -- Functionalities
     use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
     use "numToStr/Comment.nvim" -- Easily comment stuff
     use "nvim-tree/nvim-tree.lua"
+    -- use 'terryma/vim-multiple-cursors'
+    use "tpope/vim-surround"
 
     -- Colorschemes
     use "EdenEast/nightfox.nvim" -- Packer

@@ -2,8 +2,8 @@ let g:livepreview_cursorhold_recompile = 0      "prevent recompiling on cursor h
 autocmd FileType tex nnoremap <buffer> <F4> :w<CR>:LLPStartPreview<CR>
 
 " Nav
-autocmd FileType tex nnoremap <buffer> <C-Space> /<++><Enter>"_c4l
-autocmd FileType tex inoremap <buffer> <C-Space> <Esc>/<++><Enter>"_c4l
+autocmd FileType tex nnoremap <buffer> <C-;> /<++><Enter>"_c4l
+autocmd FileType tex inoremap <buffer> <C-;> <Esc>/<++><Enter>"_c4l
 
 " Basics
 

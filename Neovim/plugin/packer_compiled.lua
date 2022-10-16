@@ -208,10 +208,47 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\Jackie\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-bbye",
     url = "https://github.com/moll/vim-bbye"
+  },
+  ["vim-latex-live-preview"] = {
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "C:\\Users\\Jackie\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\vim-latex-live-preview",
+    url = "https://github.com/xuhdev/vim-latex-live-preview"
+  },
+  ["vim-surround"] = {
+    loaded = true,
+    path = "C:\\Users\\Jackie\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-surround",
+    url = "https://github.com/tpope/vim-surround"
+  },
+  vimtex = {
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "C:\\Users\\Jackie\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\vimtex",
+    url = "https://github.com/lervag/vimtex"
   }
 }
 
 time([[Defining packer_plugins]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Filetype lazy-loads
+time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType tex ++once lua require("packer.load")({'vim-latex-live-preview', 'vimtex'}, { ft = "tex" }, _G.packer_plugins)]]
+time([[Defining lazy-load filetype autocommands]], false)
+vim.cmd("augroup END")
+vim.cmd [[augroup filetypedetect]]
+time([[Sourcing ftdetect script at: C:\Users\Jackie\AppData\Local\nvim-data\site\pack\packer\opt\vimtex\ftdetect\cls.vim]], true)
+vim.cmd [[source C:\Users\Jackie\AppData\Local\nvim-data\site\pack\packer\opt\vimtex\ftdetect\cls.vim]]
+time([[Sourcing ftdetect script at: C:\Users\Jackie\AppData\Local\nvim-data\site\pack\packer\opt\vimtex\ftdetect\cls.vim]], false)
+time([[Sourcing ftdetect script at: C:\Users\Jackie\AppData\Local\nvim-data\site\pack\packer\opt\vimtex\ftdetect\tex.vim]], true)
+vim.cmd [[source C:\Users\Jackie\AppData\Local\nvim-data\site\pack\packer\opt\vimtex\ftdetect\tex.vim]]
+time([[Sourcing ftdetect script at: C:\Users\Jackie\AppData\Local\nvim-data\site\pack\packer\opt\vimtex\ftdetect\tex.vim]], false)
+time([[Sourcing ftdetect script at: C:\Users\Jackie\AppData\Local\nvim-data\site\pack\packer\opt\vimtex\ftdetect\tikz.vim]], true)
+vim.cmd [[source C:\Users\Jackie\AppData\Local\nvim-data\site\pack\packer\opt\vimtex\ftdetect\tikz.vim]]
+time([[Sourcing ftdetect script at: C:\Users\Jackie\AppData\Local\nvim-data\site\pack\packer\opt\vimtex\ftdetect\tikz.vim]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
