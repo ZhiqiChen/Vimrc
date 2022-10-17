@@ -52,14 +52,15 @@ return packer.startup(function(use)
 
     -- Language Specific
     -- LaTex
-    use {
-        "xuhdev/vim-latex-live-preview",
-        ft = { 'tex' }
-    }
-    use {
-        "lervag/vimtex",
-        ft = { 'tex' }
-    }
+--     use {
+--         "xuhdev/vim-latex-live-preview",
+--         ft = { 'tex' }
+--     }
+--     use {
+--         "lervag/vimtex",
+--         ft = { 'tex' }
+--     }
+    use "lervag/vimtex"
 
     -- Functionalities
     use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter

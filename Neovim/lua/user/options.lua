@@ -41,4 +41,8 @@ vim.opt.conceallevel = 0                        -- so that `` is visible in mark
 vim.opt.pumheight = 10                          -- pop up menu height
 
 vim.cmd "colorscheme nordfox"
-
+--  vim.cmd('let g:vimtex_view_method = "okular"')
+--  vim.cmd('let g:vimtex_view_general_options = "--unique file:@pdf\\#src:@line@tex"')
+  
+--  vim.g.vimtex_view_method = "okular"
+--  vim.g.vimtex_view_general_options = '--unique file:@pdfC:\\Program Files\\WindowsApps\\KDEe.V.Okular_22.801.1132.0_x64__7vt06qxq7ptv8\\bin\\okular.exe:@line@tex'
