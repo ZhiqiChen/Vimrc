@@ -73,3 +73,9 @@ keymap("n", "<leader>n", ":NvimTreeToggle<cr>", opts)
 -- Telescope
 keymap("n", "<C-p>", ":Telescope find_files<cr>", opts)
 keymap("n", "<C-g>", ":Telescope live_grep<cr>", opts)
+
+-- nvim cmp
+keymap("n", "<A-[>", ":lua require('cmp').setup.buffer { enabled = false }<CR>", opts)
+keymap("n", "<A-]>", ":lua require('cmp').setup.buffer { enabled = true }<CR>", opts)
+-- keymap("i", "<A-[>", "<Esc>:lua require('cmp').setup.buffer { enabled = false }", opts)
+-- keymap("i", "<A-]>", "<Esc>:lua require('cmp').setup.buffer { enabled = true }", opts)

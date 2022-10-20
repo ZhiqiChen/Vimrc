@@ -52,14 +52,6 @@ return packer.startup(function(use)
 
     -- Language Specific
     -- LaTex
---     use {
---         "xuhdev/vim-latex-live-preview",
---         ft = { 'tex' }
---     }
---     use {
---         "lervag/vimtex",
---         ft = { 'tex' }
---     }
     use "lervag/vimtex"
 
     -- Functionalities
