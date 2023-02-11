@@ -33,7 +33,7 @@ call plug#begin('~/.vim/plugged')
     "visual / background functional
     Plug 'morhetz/gruvbox'
     Plug 'vim-airline/vim-airline'
-    Plug 'leafgarland/typescript-vim'   "Allows typescript file color correction
+    " Plug 'leafgarland/typescript-vim'   "Allows typescript file color correction
 
     "grep
     "Plug 'vim-utils/vim-man'
@@ -51,8 +51,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'https://tpope.io/vim/surround.git' |
         \ Plug 'https://tpope.io/vim/repeat.git'
     Plug 'terryma/vim-multiple-cursors'
-    Plug 'mattn/emmet-vim' "html shortcuts
-    Plug 'https://tpope.io/vim/unimpaired.git' "some interesting commands
+    "Plug 'mattn/emmet-vim' "html shortcuts
+    "Plug 'https://tpope.io/vim/unimpaired.git' "some interesting commands
 
     "git
     "Plug 'https://github.com/airblade/vim-gitgutter.git'
@@ -128,8 +128,8 @@ let g:NERDSpaceDelims = 1
 
 "Emmet
 "just for html,css
-let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
+"let g:user_emmet_install_global = 0
+"autocmd FileType html,css EmmetInstall
 
 
 "install vim plugged
